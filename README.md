@@ -1,2 +1,2 @@
 # PositionalRecommendation
-goal of  this project  is  making  opensource  positional recommendation system
+goal of  this project  is  developing new positional(sequence based ) recommendation system and comparing it  with  existing positional recommendation systems.
