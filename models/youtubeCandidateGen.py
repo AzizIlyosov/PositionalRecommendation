@@ -2,8 +2,9 @@
 
 class model:
     '''
-    In this model we will candidate  generation part of
+    In this model we candidate  generation model of
     Deep Neural Networks for YouTube Recommendations paper
+    will be implemented
     '''
     def __init__(self, history ,users  ):
         '''
