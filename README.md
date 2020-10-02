@@ -4,3 +4,10 @@
 
 We will write a paper on this project and name of all contributors will be accepted as an author of paper.
 Thanks for contribution!!!
+
+List of the models:
+
+   1) Deep Neural Networks for YouTube Recommendations(candidate generation)
+    <a href="imgs//YoutTube_candidate_gen.PNG"> model </a>
+   2) 
+   

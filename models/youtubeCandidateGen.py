@@ -61,7 +61,9 @@ if __name__ == '__main__':
     params = {'number_of_users':10,
         'number_of_items':10,
         'max_history_length':3,
-        'feature': [{'name': 'Job', 'type' : 'categorical', "count":102, 'emb_length': 10}],
+        'feature': [{'name': 'Job','type' : 'categorical', "count":102, 'emb_length': 10},
+                    {'name':'age', 'type':'continous' }
+                    ],
         'user_features':[{'name': 'Job', 'length':3 },]
           }
 
