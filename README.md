@@ -9,5 +9,6 @@ List of the models:
 
    1) Deep Neural Networks for YouTube Recommendations(candidate generation)
     <img src="imgs//YoutTube_candidate_gen.PNG"/> 
+    
    2) 
    
