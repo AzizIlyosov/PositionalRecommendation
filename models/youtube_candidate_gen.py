@@ -53,8 +53,13 @@ class model:
 
 
     def train(self, history, batchsize, epochs, sess):
-        em = sess.run(self.item_embedding)
+        print('model is  being traned ....')
+        em = sess.run(self.item_embedding,
+                      feed_dict={
+
+                      })
         print(em)
+        print('model has trained ....')
 
 
 if __name__ == '__main__':
@@ -80,6 +85,6 @@ if __name__ == '__main__':
 
     myModel  = model(**params)
     with tf.Session() as  sess:
-        sess.run(tf.global_variables_initializer)
-        myModel.train([1,2,3],4,5,sess )
+        sess.run(tf.initialize_all_variables())
+        myModel.train([1,2,3],4,5, sess )
 
