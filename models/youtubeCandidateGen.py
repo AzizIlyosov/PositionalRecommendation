@@ -6,8 +6,10 @@ class model:
     Deep Neural Networks for YouTube Recommendations paper
     will be implemented
     '''
-    def __init__(self, history ,users  ):
+    def __init__(self, history, users,  max_history_length ):
         '''
+
+
 
 
         '''
