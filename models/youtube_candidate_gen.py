@@ -8,7 +8,8 @@ class model:
     '''
     def __init__(self, **kwargs):
         '''
-            init varables are used for initializing model
+
+        init varables are used for initializing model
         number_of_users
         number_of_items
         max_history_length # 'maximum length of all histories '
@@ -26,6 +27,8 @@ class model:
 
         '''
 
+
+
         number_of_items = kwargs['number_of_items']
         if kwargs.get('item_emb_length'):
             item_emb_length = kwargs['item_emb_length']
@@ -37,7 +40,7 @@ class model:
         if kwargs.get('user_emb_length'):
             user_emb_length = kwargs['user_emb_length']
         else:
-            user_emb_length=  10
+            user_emb_length = 10
 
 
         max_history_length = kwargs['max_history_length']
@@ -51,7 +54,7 @@ class model:
             # user  embedding
             self.users_embedding = tf.get_variable( 'user_embedding', [ number_of_users , user_emb_length], dtype=tf.float32)
 
-            #item embedding
+            # item embedding
             self.item_embedding  = tf.get_variable('item_embedding',  [ number_of_items , item_emb_length], dtype=tf.float32)
 
             # declaring embedding for all categorical features
@@ -90,7 +93,7 @@ class model:
             self.user_embedding =  tf.gather(params=self.users_embedding, indices= self.user_id )
             history_mask = tf.tile( tf.expand_dims( tf.cast( tf.not_equal(self.history, zero) , tf.float32), axis=-1) ,[1,1,item_emb_length], name='history_mask' )
             self.hist_average  = tf.reduce_mean( tf.multiply( tf.gather(params=self.item_embedding, indices=self.history ) , history_mask  ) , axis=-2, name= 'average_history_emb')
-            print('this  is shape of the histry : ', self.hist_average.shape)
+            print('this  is shape of the history : ', self.hist_average.shape)
             print('this  is shape of the user embedding ', self.user_embedding.shape)
 
             self.user_feature_emb_gather={}
@@ -99,11 +102,6 @@ class model:
                 #c =c * self.user_features_embedding_mask[i]
                 c = tf.multiply(c, self.user_features_embedding_mask[i], name = 'masking_'+i)
                 self.user_feature_emb_gather.update({i:c})
-
-
-
-
-
 
 
 
@@ -155,6 +153,7 @@ if __name__ == '__main__':
 
                           }
     }
+
 
     myModel  = model(**params)
     with tf.Session() as  sess:
