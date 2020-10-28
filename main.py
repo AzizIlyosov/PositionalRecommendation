@@ -41,8 +41,8 @@ class main:
 import pandas as pd
 import datetime
 
-data = pd.read_csv('data\\Automotive\\Automotive.csv')
-data = pd.read_csv('data\\Automotive\\Automotive.csv', header=None)
+data = pd.read_csv('data\\Automotive.csv')
+data = pd.read_csv('data\\Automotive.csv', header=None)
 data.columns=['user','item','rating','unix_time']
 data = data.sort_values(['user','unix_time'])
 
@@ -76,15 +76,21 @@ n_users = max(data.user_int)
 n_items = max(data.item_int)
 
 print('hello word ... ')
+
 #model = youtubeModel(number_of_items=n_items,
 #                     number_of_users=n_users,
 #                     max_history_length=max_length,
 #                     feature={})
+
 history = []
 users = []
 for i,j  in data.groupby('user_int'):
-    users.append(i)
-    history.append(list(j['item_int']))
+
+    history.append({'user':i, 'history':list(j['item_int'])} )
+
+
+for i in history:
+    print(i)
 
 
 
